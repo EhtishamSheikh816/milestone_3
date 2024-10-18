@@ -20,7 +20,7 @@ var _a;
         var education = educationElement.value;
         var experience = experienceElement.value;
         var skills = skillsElement.value;
-        var resumeOutput = "<h2>Resume</h2>\n      <p><strong>Name:</strong> ".concat(name_1, "</p>\n      <p><strong>Email:</strong> ").concat(email, "</p>\n      <p><strong>Phone:</strong> ").concat(phone, "</p>\n      <h3>Education</h3>\n      <p>").concat(education, "</p>\n      <h3>Work Experience</h3>\n      <p>").concat(experience, "</p>\n      <h3>Skills</h3>\n      <p>").concat(skills, "</p>");
+        var resumeOutput = "<h2>Resume</h2>\n      <p><strong>Name:</strong> ".concat(name_1, "</p>\n      <p><strong>Email:</strong> ").concat(email, "</p>\n      <p><strong>Phone:</strong> ").concat(phone, "</p>\n      <h3>Education:</h3>\n      <p>").concat(education, "</p>\n      <h3>Work Experience:</h3>\n      <p>").concat(experience, "</p>\n      <h3>Skills:</h3>\n      <p>").concat(skills, "</p>");
         var resumeOutputElement = document.getElementById("resumeOutput");
         if (resumeOutputElement) {
             resumeOutputElement.innerHTML = resumeOutput;

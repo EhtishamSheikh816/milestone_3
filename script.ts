@@ -35,11 +35,11 @@ document
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Phone:</strong> ${phone}</p>
-      <h3>Education</h3>
+      <h3>Education:</h3>
       <p>${education}</p>
-      <h3>Work Experience</h3>
+      <h3>Work Experience:</h3>
       <p>${experience}</p>
-      <h3>Skills</h3>
+      <h3>Skills:</h3>
       <p>${skills}</p>`;
 
       const resumeOutputElement = document.getElementById("resumeOutput");
