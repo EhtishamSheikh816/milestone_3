@@ -3,6 +3,9 @@ document
   ?.addEventListener("submit", function (event) {
     event.preventDefault();
 
+    const profilePicInput = document.getElementById(
+      "profilePic"
+    ) as HTMLInputElement;
     const nameElement = document.getElementById("name") as HTMLInputElement;
     const emailElement = document.getElementById("email") as HTMLInputElement;
     const phoneElement = document.getElementById("phone") as HTMLInputElement;
@@ -17,6 +20,7 @@ document
     ) as HTMLTextAreaElement;
 
     if (
+      profilePicInput &&
       nameElement &&
       emailElement &&
       phoneElement &&
@@ -30,25 +34,36 @@ document
       const education = educationElement.value;
       const experience = experienceElement.value;
       const skills = skillsElement.value;
+      const profilePicFile = profilePicInput.files?.[0];
+      const profilePicURL = profilePicFile
+        ? URL.createObjectURL(profilePicFile)
+        : "";
 
       const resumeOutput = `<h2>Resume</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
-      <h3>Education:</h3>
-      <p>${education}</p>
-      <h3>Work Experience:</h3>
-      <p>${experience}</p>
-      <h3>Skills:</h3>
-      <p>${skills}</p>`;
+${
+  profilePicURL
+    ? `<img src="${profilePicURL}" alt="Profile Picture" class="profilePic">`
+    : ""
+}
+<p><strong>Name:</strong> ${name}</p>
+<p><strong>Email:</strong> ${email}</p>
+<p><strong>Phone:</strong> ${phone}</p>
+<h3>Education:</h3>
+<p>${education}</p>
+<h3>Work Experience:</h3>
+<p>${experience}</p>
+<h3>Skills:</h3>
+<p>${skills}</p>
+`;
 
       const resumeOutputElement = document.getElementById("resumeOutput");
       if (resumeOutputElement) {
         resumeOutputElement.innerHTML = resumeOutput;
+        resumeOutputElement.style.display = "block";
       } else {
-        console.error("The resume Output element are missing.");
+        console.error("One or more form elements are missing");
       }
     } else {
-      console.error("One or more fields are missing.");
+      alert("Please fill out all the fields");
     }
   });
